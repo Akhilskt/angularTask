@@ -6,33 +6,50 @@
         rect{
             fill: #3bc36f;
         }
-        line.connector {
+        line.positive {
             stroke: #3bc36f;
+        }
+        line.negative {
+            stroke: #ee4b42;
+        }
+        line.last{
+            stroke: #f8931f;
         }
     }
     .bar.negative{
         rect{
             fill: #ee4b42;
         }
-        line.connector {
+        line.positive {
+            stroke: #3bc36f;
+        }
+        line.negative {
             stroke: #ee4b42;
+        }
+        line.last{
+            stroke: #f8931f;
         }
     }
     .bar text {
-        fill: white;
+        fill: #121213;
+        font-weight: 600;
         font-size: 12px;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         text-anchor: middle;
     }
     .axis text {
+        fill: #000000d6;
+        font-weight: 600;
         font-size: 12px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: bold;
+        font-family: "Poppins", sans-serif;
     }
     .axis path,
     .axis line {
         fill: none;
-        stroke: #000;
+        stroke: #b2b2b2;
         shape-rendering: crispEdges;
+    }
+    .tick line{
+        visibility:hidden;
     }
 }

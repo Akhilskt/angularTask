@@ -16,8 +16,7 @@
         <h4>{{pageResponse.footer.name}}</h4>
         <h6>{{pageResponse.footer.role}}</h6>
       </div>
-      <div class="textContainer">
-        {{pageResponse.footer.description}}
+      <div class="textContainer" [innerHTML]="pageResponse.footer.description">
       </div>
     </div>
   </div>

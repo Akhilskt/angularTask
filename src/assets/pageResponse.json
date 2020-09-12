@@ -8,6 +8,6 @@
 		"avatar": "./assets/avatar.jpg",
 		"name": "William Carlson",
 		"role": "Senior Analyst",
-		"description": "Increase in marketing spend seems to increase the number of impressions in Alpha brava and looks like it translated to revenue."
+		"description": "Increase in marketing spend seems to increase the number of impressions in <b>Alpha Bravo</b> and looks like it translated to revenue."
 	}
 }

@@ -21,12 +21,12 @@ export class WaterfallComponent implements OnInit {
   }
   dollarFormatter(n) {
     n = Math.round(n);
-    var result = n;
-    return '$' + Math.abs(result);
+    var result =  Math.abs(n);
+    return '$' + result.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   }
 
   createChart(data) {
-    var margin = { top: 20, right: 30, bottom: 30, left: 40 },
+    var margin = { top: 60, right: 30, bottom: 60, left: 40 },
       width = this.elRef.nativeElement.parentElement.offsetWidth - margin.left - margin.right,
       height = (this.elRef.nativeElement.parentElement.offsetHeight + 300) - margin.top - margin.bottom,
       padding = 0.3;
@@ -37,11 +37,8 @@ export class WaterfallComponent implements OnInit {
       .range([height, 0]);
 
     var xAxis = d3.axisBottom(x);
-    var yAxis = d3.axisLeft(y).tickFormat((d) => { return this.dollarFormatter(d); });
-
     var chart = d3.select('.chart')
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.left + margin.right + 32}`)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     var cumulative = 0;
@@ -50,13 +47,18 @@ export class WaterfallComponent implements OnInit {
       cumulative += parseInt(data[i].value);
       data[i].end = cumulative;
       data[i].class = (data[i].value >= 0) ? 'positive' : 'negative';
+      if( i !== (data.length-1)) {
+        data[i].connectorClass = data[i+1].value >= 0 ? 'positive' : 'negative';
+      } else{
+        data[i].connectorClass = 'last';
+      }
       data[i].value = parseInt(data[i].value)
     }
     data.push({
-      name: 'Total',
+      name: 'This Month Revenue',
       end: cumulative,
       start: 0,
-      class: 'total'
+      class: 'total',
     });
 
     x.domain(data.map(function (d) { return d.name; }));
@@ -80,12 +82,11 @@ export class WaterfallComponent implements OnInit {
 
     bar.append("text")
       .attr("x", x.bandwidth() / 2)
-      .attr("y", function (d: any) { return y(d.end) + 5; })
-      .attr("dy", function (d: any) { return ((d.class == 'negative') ? '-' : '') + ".75em" })
+      .attr("y", function (d: any) { return ((d.class == 'negative') ? y(d.start) - 15 : y(d.end) - 15) })
       .text((d: any) => { return this.dollarFormatter(d.end - d.start)});
 
     bar.filter(function (d: any) { return d.class != "total" }).append("line")
-      .attr("class", "connector")
+      .attr("class", function (d: any) { return d.connectorClass})
       .attr("x1", x.bandwidth() + 5)
       .attr("y1", function (d: any) { return y(d.end) })
       .attr("x2", x.bandwidth() / (1 - padding) - 5)
