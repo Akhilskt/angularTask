@@ -1,0 +1,66 @@
+.revwaterfall{
+    .container{
+        height: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        .card{
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border: 1px solid #eee;
+            background-color: #fafafa; 
+            padding: 1rem 2rem;
+            flex: 1 0 auto;
+            h1{
+                margin-top: 0;
+            }
+            .body{
+                border-radius: 4px;
+                border: 1px solid #eee;
+                background-color: #fafafa;
+                box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+                transition: all 0.2s ease-in-out;
+                line-height: 24px;
+            }
+        }
+        .footer{
+            background-color: #5bb4ba;
+            color: #e7fbfb;
+            flex-shrink: 0;
+            padding: 1rem 2rem;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            .avatar{
+                flex:0.2;
+                padding: 4px 0;
+                img{
+                    width:43px;
+                    height: 43px;
+                    border-radius: 1000px;
+                }
+            }
+            .info{
+                flex: 0.65;
+                padding: 4px 0;
+                border-right: 4px solid #b8e3e5;
+                h4{
+                    margin: 0 0 2px 0;
+                }
+                h6{
+                    margin: 0;
+                    font-weight: normal;
+                    font-size: 0.85rem;
+                }
+            }
+            .textContainer{
+                flex: 3;
+                align-self: center;
+                margin-left: 8px;
+                padding: 4px 0;
+            }
+        }
+    }
+}

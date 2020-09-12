@@ -1,0 +1,24 @@
+{
+    "data":[
+      {
+        "name": "Last Month Revenue",
+        "value": 3829
+      },
+      {
+        "name": "Gainers",
+        "value": 17974
+      },
+      {
+        "name": "Losers",
+        "value": -3979
+      },
+      {
+        "name": "New Entrants",
+        "value": 31282
+      },
+      {
+        "name": "Exits",
+        "value": -30262
+      }
+    ]
+  }

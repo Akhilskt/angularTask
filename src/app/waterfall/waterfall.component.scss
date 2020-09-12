@@ -1,0 +1,38 @@
+.chart{
+    .bar.total rect {
+        fill: #f8931f;
+      }
+    .bar.positive{
+        rect{
+            fill: #3bc36f;
+        }
+        line.connector {
+            stroke: #3bc36f;
+        }
+    }
+    .bar.negative{
+        rect{
+            fill: #ee4b42;
+        }
+        line.connector {
+            stroke: #ee4b42;
+        }
+    }
+    .bar text {
+        fill: white;
+        font-size: 12px;
+        font-family: 'Poppins', sans-serif;
+        text-anchor: middle;
+    }
+    .axis text {
+        font-size: 12px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+    }
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: #000;
+        shape-rendering: crispEdges;
+    }
+}

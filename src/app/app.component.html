@@ -1,0 +1,24 @@
+<div class="revwaterfall">
+  <div class="container">
+    <div class="card">
+      <div class="header" *ngIf="pageResponse.header">
+        <h1>{{pageResponse.header}}</h1>
+      </div>
+      <div class="body">
+        <app-waterfall [urlToFetch]="pageResponse.body.urlToFetch"></app-waterfall>
+      </div>
+    </div>
+    <div class="footer" *ngIf="pageResponse.footer">
+      <div class="avatar">
+        <img [src]="pageResponse.footer.avatar" class='iconDetails'>
+      </div>
+      <div class="info">
+        <h4>{{pageResponse.footer.name}}</h4>
+        <h6>{{pageResponse.footer.role}}</h6>
+      </div>
+      <div class="textContainer">
+        {{pageResponse.footer.description}}
+      </div>
+    </div>
+  </div>
+</div>
